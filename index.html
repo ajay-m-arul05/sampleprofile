@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive portfolio website with sidebar navigation</title>
+    <link rel="stylesheet" href="style.css">
+<!----Font Awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+<body>
+    <div class = "topnav">
+        <div class="logo">
+            <h2>Ajay.M.Arul</h2>
+        </div>
+        <div class="socials">
+            <a href="#"><i class = "fab fa-instagram"></i></a>
+            <a href="#"><i class = "fab fa-linkedin"></i></a>
+            <a href="#"><i class = "fab fa-github"></i></a>
+            <a href="#"><i class = "fab fa-whatsapp"></i></a>
+        </div>
+
+        <div class="menu-icon">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#works">Works</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        
+                
+    </div>
+    <div class="header">
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="primage.jpg" alt="profile_" class="avatar">
+                    <h2>Ajay.M.Arul</h2>
+                </div>
+                <ul class="nav">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#works">Works</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                
+                
+                <div class="socials">
+                    <a href="https://www.instagram.com/ajay.m.arul05?igsh=MWg4ajlrMzRhZTdsbw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/YOUR_USERNAME" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/YOUR_USERNAME" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                
+            </div>
+            <div id="home" class="hero-content">
+                <h4>Welcome</h4>
+                <h1>I'm <span class="input"></h1>
+                <h4>from Kerala,India</h4>
+                <a href="" class="btn">Hire ME</a>    
+            </div>
+        </div>
+    </div>
+
+    <!--sections-->
+    
+    </div>
+    
+    <div id="about" class="section">
+        <h1 style="color: goldenrod;">About Me</h1>
+        <div class="about-box">
+            <p>
+                Hello! I'm Ajay M. Arul, a passionate web developer from Kerala, India. 
+                I specialize in building responsive websites and have experience in front-end development
+                My goal is to create innovative and user-friendly digital solutions.
+            </p>
+        </div>
+    </div>
+    
+    <div id="works" class="section">
+        <h1 style="color: goldenrod;">My Works</h1>
+    </div>
+    
+    <div id="resume" class="section">
+        <h1 style="color: goldenrod;">Resume</h1>
+    </div>
+    
+    <div id="contact" class="section">
+        <h1 style="color: goldenrod;">Contact Me</h1>
+    </div>
+    
+    
+    <!--typing effect-->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+
+    <script>
+        var typed=new Typed(".input",{
+            strings:["AJAY","an Eingeer","a Web Developer"],
+            typeSpeed:120,
+            backSpeed:40,
+            loop:true
+        })
+        /*displaying menu in small window*/
+        let menuicon = document.querySelector(".menu-icon"); // Adjust selector as per your HTML
+        let navbar = document.querySelector(".navbar");
+        let icon = document.querySelector(".menu-icon i"); // Target the icon inside the button
+
+        // Toggle menu and change icon
+        menuicon.addEventListener("click", function () {
+            navbar.classList.toggle("open");
+        
+            if (icon.classList.contains("fa-bars")) {
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-xmark");
+            } 
+            else {
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+            }
+            });
+
+            document.querySelectorAll(".navbar a, .nav a").forEach(link => {
+                link.addEventListener("click", () => {
+                    document.querySelector(".navbar").classList.remove("open");
+                    document.querySelector(".menu-icon i").classList.remove("fa-xmark");
+                    document.querySelector(".menu-icon i").classList.add("fa-bars");
+    });
+});
+        document.querySelector("a[href='#home']").addEventListener("click", (event) => {
+            event.preventDefault(); // Prevents instant jump
+
+            window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top smoothly
+
+            setTimeout(() => {
+                document.querySelector(".input").innerHTML = ""; // Clear text
+
+                new Typed(".input", {
+                    strings: ["AJAY", "an Engineer", "a Web Developer"],
+                    typeSpeed: 120,
+                    backSpeed: 40,
+                    loop: true
+                });
+            }, 500); // Small delay before restarting animation
+        });
+
+
+    </script>
+</body>
+</html>
